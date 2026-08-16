@@ -23,10 +23,13 @@ export const BOT_NAME = "Renen";
 // ============================================================
 
 // LID do dono do bot (o unico que pode usar /on, /off e /adm).
-export const OWNER_LID = "557499741346@lid";
+// Numero do dono: 83991534841
+export const OWNER_LID = "5583991534841@lid";
 
 // LID do numero em que o bot esta pareado (o proprio bot).
-export const BOT_LID = "557499741346@lid";
+// Se o bot estiver no MESMO numero do dono, deixe igual ao de cima.
+// Se estiver em outro numero, troque aqui.
+export const BOT_LID = "5583991534841@lid";
 
 // Diretorio raiz do projeto.
 export const ROOT_DIR = path.resolve(__dirname, "..");
