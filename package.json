@@ -1,0 +1,19 @@
+{
+  "name": "renen-bot",
+  "version": "1.0.0",
+  "description": "Renen Bot: bot de moderacao para WhatsApp, somente para grupos autorizados e usuarios autorizados.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "engines": {
+    "node": ">=22.8.0"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "baileys": "7.0.0-rc14",
+    "node-cache": "^5.1.2",
+    "pino": "^10.3.1"
+  }
+}
