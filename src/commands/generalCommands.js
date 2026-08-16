@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { getNextKitten, menuMessage } from "../menu.js";
+import { getNextDog, menuMessage } from "../menu.js";
 
 const generalCommands = [
   {
@@ -8,7 +8,7 @@ const generalCommands = [
     commands: ["menu", "help", "comandos"],
     description: "Mostra o menu de comandos.",
     async handle({ sender }) {
-      let imagePath = getNextKitten();
+      let imagePath = getNextDog();
 
       if (!fs.existsSync(imagePath)) {
         await sender.sendReply(`\n\n${menuMessage()}`);

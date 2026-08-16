@@ -3,15 +3,15 @@ import pkg from "../package.json" with { type: "json" };
 import { ASSETS_DIR, BOT_EMOJI, BOT_NAME, PREFIX } from "./config.js";
 import { readMore } from "./utils.js";
 
-let kittenIndex = 0;
+let dogIndex = 0;
 
-const kittenImages = [1, 2, 3, 4].map((n) =>
-  path.join(ASSETS_DIR, "images", "gatinhos", `gato-0${n}.png`),
+const dogImages = [1, 2, 3, 4].map((n) =>
+  path.join(ASSETS_DIR, "images", "cachorros", `cachorro-0${n}.png`),
 );
 
-export function getNextKitten() {
-  const selectedImage = kittenImages[kittenIndex];
-  kittenIndex = (kittenIndex + 1) % kittenImages.length;
+export function getNextDog() {
+  const selectedImage = dogImages[dogIndex];
+  dogIndex = (dogIndex + 1) % dogImages.length;
   return selectedImage;
 }
 
@@ -72,7 +72,7 @@ export function menuMessage() {
 ▢ • ${PREFIX}menu
 ▢ • ${PREFIX}ping
 ▢
-╰━━─「🐱」─━━
+╰━━─「🐶」─━━
 
 Feito por ${BOT_NAME} • ${BOT_EMOJI}`;
 }
