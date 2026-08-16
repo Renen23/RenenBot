@@ -149,7 +149,7 @@ async function connectOnce() {
     maxMsgRetryCount: 5,
     markOnlineOnConnect: true,
     syncFullHistory: false,
-    emitOwnEvents: false,
+    emitOwnEvents: true,
     msgRetryCounterCache,
     shouldSyncHistoryMessage: () => false,
   });
