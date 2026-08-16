@@ -32,6 +32,8 @@ import {
 } from "../utils.js";
 import { addWarn, getWarnCount, getWarnLimit, removeLastWarn } from "../services/warns.js";
 
+const sameNumber = (a, b) => !!a && !!b && onlyNumbers(a) === onlyNumbers(b);
+
 function getTargetLid(args, isReply, replyLid) {
   if (isReply && replyLid) {
     return replyLid;
@@ -70,17 +72,17 @@ const adminCommands = [
         return;
       }
 
-      if (targetLid === userLid) {
+      if (sameNumber(targetLid, userLid)) {
         await sender.sendErrorReply("Você não pode remover você mesmo!");
         return;
       }
 
-      if (targetLid === OWNER_LID) {
+      if (sameNumber(targetLid, OWNER_LID)) {
         await sender.sendErrorReply("Você não pode remover o dono do bot!");
         return;
       }
 
-      if (targetLid === BOT_LID) {
+      if (sameNumber(targetLid, BOT_LID)) {
         await sender.sendErrorReply("Você não pode me remover!");
         return;
       }
@@ -117,7 +119,7 @@ const adminCommands = [
         return;
       }
 
-      if (targetLid === OWNER_LID || targetLid === BOT_LID) {
+      if (sameNumber(targetLid, OWNER_LID) || sameNumber(targetLid, BOT_LID)) {
         await sender.sendErrorReply("Você não pode mutar este usuário.");
         return;
       }
@@ -180,12 +182,12 @@ const adminCommands = [
         return;
       }
 
-      if (targetLid === userLid) {
+      if (sameNumber(targetLid, userLid)) {
         await sender.sendErrorReply("Você não pode se advertir!");
         return;
       }
 
-      if (targetLid === OWNER_LID || targetLid === BOT_LID) {
+      if (sameNumber(targetLid, OWNER_LID) || sameNumber(targetLid, BOT_LID)) {
         await sender.sendErrorReply("Não é possível advertir este usuário.");
         return;
       }

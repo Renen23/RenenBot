@@ -28,7 +28,10 @@ export async function handleMessage({ socket, webMessage }) {
       return;
     }
 
-    if (isFromBot(webMessage)) {
+    const { userLid, fullMessage, commandName, args, fullArgs, isReply, replyLid } =
+      extractMessage(webMessage);
+
+    if (isFromBot(webMessage) && !isOwner(userLid)) {
       return;
     }
 
@@ -47,9 +50,6 @@ export async function handleMessage({ socket, webMessage }) {
 
       return;
     }
-
-    const { userLid, fullMessage, commandName, args, fullArgs, isReply, replyLid } =
-      extractMessage(webMessage);
 
     if (!userLid) {
       return;
