@@ -3,7 +3,7 @@ import {
   isAuthorizedGroup,
   isMutedMember,
 } from "../database.js";
-import { errorLog } from "../logger.js";
+import { errorLog, infoLog } from "../logger.js";
 import { isBotAdminUser, isOwner } from "../permissions.js";
 import { createSender } from "../sender.js";
 import { handleAntiLink } from "../services/antiLink.js";
@@ -17,6 +17,7 @@ import {
   GROUP_PARTICIPANT_LEAVE,
   isAddOrLeave,
   isTooOld,
+  onlyNumbers,
 } from "../utils.js";
 import { handleGroupEvent } from "./groupHandler.js";
 
@@ -56,6 +57,12 @@ export async function handleMessage({ socket, webMessage }) {
     }
 
     const authorizedGroup = isAuthorizedGroup(remoteJid);
+
+    if (commandName) {
+      infoLog(
+        `[COMANDO] /${commandName} | user=${onlyNumbers(userLid)} | dono=${isOwner(userLid)} | autorizado=${authorizedGroup}`,
+      );
+    }
 
     if (authorizedGroup && isMutedMember(remoteJid, userLid)) {
       try {
